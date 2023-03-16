@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navBar {
+    background-color: #0359ba;
+
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 10px;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+@media(min-width: 990px) {
+
+    .nav-link {
+        gap: 60px;
+        font-size: 1.5rem;
+    }
+
+
+}
+
+.nav-cart {
+    display: flex;
+    align-items: center;
+
+}
+
+.btn-cart {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #0359ba;
+    border: none;
+}
+
+.btn-cart:hover {
+    background-color: #064082;
+}
+
+.material-symbols-outlined {
+    color: white;
+}
+
+.logo img {
+    max-width: 170px;
+    max-height: 140px;
+    padding-top: 15px;
+
+}
