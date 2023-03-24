@@ -4,3 +4,12 @@
     font-size: 3rem;
     font-family: 'Raleway', sans-serif;
 }
+
+.counter {
+
+    margin-left: 50px;
+}
+
+.counter button {
+    width: 50px;
+}
