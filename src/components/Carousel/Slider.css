@@ -1,0 +1,11 @@
+.red-wine,
+.rose,
+.white-wine {
+    width: 100%;
+    height: 80vh;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 80vh;
+}

@@ -18,7 +18,7 @@ const ItemCount = ({ stock, initial }) => {
         <>
             <div className='counter'>
                 <Button onClick={Minus} disabled={count <= initial}>-</Button>
-                <span>{count}</span>
+                <span className='count'>{count}</span>
                 <Button onClick={Plus} disabled={count === stock}>+</Button>
 
             </div>

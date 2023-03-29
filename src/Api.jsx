@@ -81,9 +81,9 @@ const products = [
     },
     {
         id: 9,
-        image: "../src/assets/linda flor.jpg",
+        image: "../src/assets/santa julia.jpg",
         quantity: 1,
-        name: "Lindaflor",
+        name: "Santa Julia",
         type: "white wine",
         variaty: "Chardonay",
         price: 1000,
@@ -191,4 +191,25 @@ export const getProducts = () => {
     })
 
     return promise
+
 }
+export const getProduct = () => new Promise((resolve, reject) => {
+    setTimeout(() => resolve(
+
+        {
+            id: 1,
+            image: "../src/assets/alamos malbec.jpg",
+            quantity: 1,
+            name: "Alamos",
+            type: "red wine",
+            variaty: "malbec",
+            price: 1000,
+            description: "Es un vino que refleja su amor por la buena uva"
+        }
+
+    ), 2000)
+
+})
+
+
+

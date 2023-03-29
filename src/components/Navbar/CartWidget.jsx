@@ -1,6 +1,6 @@
 const CartWidget = () => {
     return (
-        <button className="btn-cart ">
+        <button className="button-cart ">
             <span className="material-symbols-outlined">
                 shopping_cart
             </span>

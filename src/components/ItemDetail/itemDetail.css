@@ -1,0 +1,38 @@
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-detail {
+    margin: auto;
+}
+
+.btn-cart,
+.btn-counter {
+    width: 100%;
+}
+
+.count {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+
+.card-title {
+    font-size: 2.6rem;
+}
+
+.card-variaty {
+    font-size: 2.2rem;
+}
+
+.card-text {
+    font-size: 1.8rem;
+}
+
+.card-price {
+    font-size: 2rem;
+    font-weight: bold;
+}

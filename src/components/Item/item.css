@@ -3,3 +3,38 @@
     flex-wrap: wrap;
     gap: 30px;
 }
+
+.btn-cart {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: flex-end;
+    border: none;
+
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-item {
+    font-size: 1.5rem;
+
+}
+
+.variaty-item {
+    font-size: 1.2rem;
+
+}
+
+.price-item {
+    font-weight: bold;
+}
