@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
+a {
+  text-decoration: none;
+}
 
 .navBar {
   z-index: 2;
@@ -15,19 +18,21 @@
   background-color: #0359ba;
 }
 
-.nav-link {
+.links {
   display: flex;
   align-items: center;
   color: white;
   gap: 10px;
   font-size: 1rem;
   font-family: "Raleway", sans-serif;
+  text-decoration: none;
 }
 
 @media (min-width: 990px) {
-  .nav-link {
+  .links {
     gap: 60px;
     font-size: 1.5rem;
+    text-decoration: none;
   }
 }
 

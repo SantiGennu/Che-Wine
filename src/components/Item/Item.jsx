@@ -2,6 +2,7 @@ import { TbShoppingCartPlus } from "react-icons/tb";
 import "./Item.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 const Item = ({ product }) => {
   return (
     <div className=" card-container">
@@ -13,7 +14,9 @@ const Item = ({ product }) => {
           <Card.Text className="price-item">$ {product.price}</Card.Text>
           <div className="btn-container">
             <div className="btn-detail">
-              <Button>More Details</Button>
+              <Link to={`/detail/${product.id}`}>
+                <Button>More Details</Button>
+              </Link>
             </div>
             <div className="btn-cart">
               <Button className="button">

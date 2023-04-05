@@ -1,7 +1,11 @@
-import { Button, Card } from "react-bootstrap";
-import ItemCount from "../Item/ItemCount";
+import Card from "react-bootstrap/Card";
+import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetail = ({ product }) => {
+  const onAdd = (count) => {
+    console.log(count);
+  };
+
   return (
     <Card className="card-detail" style={{ width: "30rem" }}>
       <Card.Img variant="top" src={product.image} />
@@ -11,12 +15,7 @@ const ItemDetail = ({ product }) => {
         <Card.Text className="card-text">{product.description}</Card.Text>
         <Card.Text className="card-price">$ {product.price}</Card.Text>
         <div className="buttons-container">
-          <ItemCount stock={3} initial={1} />
-          <div className="btn-cart">
-            <Button className="button">
-              <span>{/* <TbShoppingCartPlus /> */}</span>
-            </Button>
-          </div>
+          <ItemCount initial={1} stock={15} onAdd={onAdd} />
         </div>
       </Card.Body>
     </Card>

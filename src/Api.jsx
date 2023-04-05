@@ -124,7 +124,7 @@ const products = [
     image: "../src/assets/kaiken rose.jpg",
     quantity: 1,
     name: "Kaiken Estate",
-    type: "rosé",
+    type: "Rosé",
     variaty: "malbec",
     price: 1000,
     description: "es un vino que refleja su amor por la buena uva",
@@ -134,7 +134,7 @@ const products = [
     image: "../src/assets/punto final rose.jpg",
     quantity: 1,
     name: "Punto Final",
-    type: "rosé",
+    type: "Rosé",
     variaty: "malbec",
     price: 1000,
     description: "es un vino que refleja su amor por la buena uva",
@@ -144,7 +144,7 @@ const products = [
     image: "../src/assets/norton.jpg",
     quantity: 1,
     name: "Norton",
-    type: "rosé",
+    type: "Rosé",
     variaty: "malbec",
     price: 1000,
     description: "es un vino que refleja su amor por la buena uva",
@@ -154,7 +154,7 @@ const products = [
     image: "../src/assets/andeluna rose.jpg",
     quantity: 1,
     name: "Andeluna",
-    type: "rosé",
+    type: "Rosé",
     variaty: "malbec",
     price: 1000,
     description: "es un vino que refleja su amor por la buena uva",
@@ -164,7 +164,7 @@ const products = [
     image: "../src/assets/dona paula rose.jpg",
     quantity: 1,
     name: "Doña Paula",
-    type: "rosé",
+    type: "Rosé",
     variaty: "malbec",
     price: 1000,
     description: "es un vino que refleja su amor por la buena uva",
@@ -174,37 +174,29 @@ const products = [
     image: "../src/assets/trumpeter rose.jpg",
     quantity: 1,
     name: "Trumpeter",
-    type: "rosé",
+    type: "Rosé",
     variaty: "Malbec",
     price: 1000,
     description: "es un vino que refleja su amor por la buena uva",
   },
 ];
 
-export const getProducts = () => {
+export const getProduct = (id) => {
   const promise = new Promise((resolve, reject) => {
     // setTimeout(() => {
-    resolve(products);
+    resolve(id ? products.find((prod) => prod.id == id) : products);
     // }, 2000);
   });
 
   return promise;
 };
 
-export const getProduct = () =>
-  new Promise((resolve, reject) => {
-    setTimeout(
-      () =>
-        resolve({
-          id: 1,
-          image: "../src/assets/alamos malbec.jpg",
-          quantity: 1,
-          name: "Alamos",
-          type: "red wine",
-          variaty: "malbec",
-          price: 1000,
-          description: "Es un vino que refleja su amor por la buena uva",
-        }),
-      2000
-    );
-  });
+// export const getProduct = (id) => {
+//   const promise = new Promise((resolve, reject) => {
+//     // setTimeout(() => {
+//     resolve(products[0]);
+//     // }, 2000);
+//   });
+
+//   return promise;
+// };

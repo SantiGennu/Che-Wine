@@ -11,19 +11,14 @@ const Slider = () => {
         <Carousel.Item>
           <div className="gradient"></div>
           <img className="red-wine" src={RedWine} alt="red wine" />
-          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <div className="gradient"></div>
           <img className="white-wine" src={WhiteWine} alt="white wine" />
-
-          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <div className="gradient"></div>
           <img className="rose" src={Rose} alt="rose" />
-
-          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>
