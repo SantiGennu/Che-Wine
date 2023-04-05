@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { getProduct } from '../../Api'
-import ItemDetail from '../ItemDetail/ItemDetail'
-
-
-
+import React, { useEffect, useState } from "react";
+import { getProduct } from "../../Api";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({})
+  const [product, setProduct] = useState({});
 
-    useEffect(() => {
-        getProduct()
-            .then((res) => setProduct(res))
-            .catch(err => console.log(err))
+  useEffect(() => {
+    getProduct()
+      .then((res) => setProduct(res))
+      .catch((err) => console.log(err));
+  }, []);
 
-    }, [])
+  return (
+    <div className="detail-container">
+      <ItemDetail product={product} />
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <ItemDetail product={product} />
-        </div>
-    )
-}
-
-export default ItemDetailContainer
+export default ItemDetailContainer;
