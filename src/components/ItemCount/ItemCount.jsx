@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import { UseCount } from "../../Hooks/UseCount";
 import "./ItemCount.css";
 

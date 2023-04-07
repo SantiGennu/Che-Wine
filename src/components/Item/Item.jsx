@@ -15,7 +15,7 @@ const Item = ({ product }) => {
           <div className="btn-container">
             <div className="btn-detail">
               <Link to={`/detail/${product.id}`}>
-                <Button>More Details</Button>
+                <Button className="btn-moreDetail">More Details</Button>
               </Link>
             </div>
             <div className="btn-cart">
