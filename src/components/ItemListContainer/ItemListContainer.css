@@ -1,7 +1,12 @@
 .greetings {
   text-align: center;
   padding: 20px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: "Raleway", sans-serif;
   color: #0359ba;
+}
+@media (min-width: 990px) {
+  .greetings {
+    font-size: 3rem;
+  }
 }
