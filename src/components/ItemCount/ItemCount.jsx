@@ -13,14 +13,24 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   return (
     <>
       <div className="counter">
-        <Button onClick={decrement} disabled={count <= initial}>
+        <Button
+          className="btn-counter"
+          onClick={decrement}
+          disabled={count <= initial}
+        >
           -
         </Button>
         <span className="count">{count}</span>
-        <Button onClick={increment} disabled={count === stock}>
+        <Button
+          className="btn-counter"
+          onClick={increment}
+          disabled={count === stock}
+        >
           +
         </Button>
-        <Button onClick={handleOnAdd}>Add to cart</Button>
+        <Button className="btn-add" onClick={handleOnAdd}>
+          Add to cart
+        </Button>
       </div>
     </>
   );

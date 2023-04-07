@@ -19,33 +19,25 @@ const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="links ms-auto">
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "btn btn-primary" : "btn btn-outline-primary"
-                }
+                className={({ isActive }) => (isActive ? "btn-a " : "btn")}
                 to="/"
               >
                 Home
               </NavLink>
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "btn btn-primary" : "btn btn-outline-primary"
-                }
+                className={({ isActive }) => (isActive ? "btn-a" : "btn")}
                 to="/type/red wine"
               >
                 Red Wine
               </NavLink>
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "btn btn-primary" : "btn btn-outline-primary"
-                }
+                className={({ isActive }) => (isActive ? "btn-a" : "btn")}
                 to="/type/white wine"
               >
-                White wine
+                White Wine
               </NavLink>
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "btn btn-primary" : "btn btn-outline-primary"
-                }
+                className={({ isActive }) => (isActive ? "btn-a " : "btn")}
                 to="/type/Rosé"
               >
                 Rosé

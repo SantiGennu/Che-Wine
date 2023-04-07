@@ -11,10 +11,10 @@ function App() {
         <Slider />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/type/:typeId" element={<Home />} />
-          <Route path="/type/:typeId" element={<Home />} />
-          <Route path="/type/:typeId" element={<Home />} />
           <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
+          <Route path="/type/:typeId" element={<Home />} />
+          <Route path="/type/:typeId" element={<Home />} />
+          <Route path="/type/:typeId" element={<Home />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
