@@ -10,7 +10,7 @@ const NavBar = () => {
         <Container className="nav-container">
           <Link className="logo" to={"/"}>
             <img
-              src="/public/Che Wine1.png
+              src="/Che Wine1.png
                     "
               alt="Che wine"
             />
