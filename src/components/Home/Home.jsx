@@ -1,5 +1,5 @@
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
-import Filter from "../filter/filter";
+import Filter from "../Filter/filter";
 
 import "./Home.css";
 
