@@ -1,0 +1,54 @@
+.form {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  background-color: #0359ba;
+  margin: 50px;
+  color: white;
+}
+
+.div-name,
+.div-email,
+.div-comments {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  font-size: 1rem;
+  border-color: #0359ba;
+}
+input {
+  height: 50%;
+}
+
+.btn-form {
+  background-color: #0359ba;
+  color: white;
+  width: 100%;
+}
+.btn-form:hover {
+  background-color: azure;
+  color: black;
+}
+.error {
+  background-color: white;
+  color: red;
+  font-size: 0.8rem;
+}
+.title-form h2 {
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.contact-us {
+  background-color: #0359ba;
+  color: white;
+}
