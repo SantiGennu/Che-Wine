@@ -3,6 +3,8 @@ import Home from "./components/Home/Home";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import NavBar from "./components/Navbar/NavBar";
 import Slider from "./components/Carousel/Slider";
+import Contact from "./components/Contact/Contact";
+import BestSellers from "./components/BestSellers/BestSellers";
 function App() {
   return (
     <>
@@ -15,6 +17,8 @@ function App() {
           <Route path="/type/:typeId" element={<Home />} />
           <Route path="/type/:typeId" element={<Home />} />
           <Route path="/type/:typeId" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/bestSellers" element={<BestSellers />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

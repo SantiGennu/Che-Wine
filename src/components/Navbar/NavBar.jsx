@@ -26,21 +26,15 @@ const NavBar = () => {
               </NavLink>
               <NavLink
                 className={({ isActive }) => (isActive ? "btn-a" : "btn")}
-                to="/type/red wine"
+                to="/bestSellers"
               >
-                Red Wine
+                Best Sellers
               </NavLink>
               <NavLink
                 className={({ isActive }) => (isActive ? "btn-a" : "btn")}
-                to="/type/white wine"
+                to="/contact"
               >
-                White Wine
-              </NavLink>
-              <NavLink
-                className={({ isActive }) => (isActive ? "btn-a " : "btn")}
-                to="/type/Rosé"
-              >
-                Rosé
+                Contact Us
               </NavLink>
             </Nav>
 

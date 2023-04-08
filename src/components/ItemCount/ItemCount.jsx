@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import { UseCount } from "../../Hooks/UseCount";
 import "./ItemCount.css";
+import { Link } from "react-router-dom";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const { count, increment, decrement, reset } = UseCount();
@@ -31,6 +32,10 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         <Button className="btn-add" onClick={handleOnAdd}>
           Add to cart
         </Button>
+
+        <Link to={"/"}>
+          <Button className="btn-back">Back</Button>
+        </Link>
       </div>
     </>
   );
