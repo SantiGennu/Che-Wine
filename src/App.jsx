@@ -15,8 +15,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/detail/:detailId" element={<ItemDetailContainer />} />
           <Route path="/type/:typeId" element={<Home />} />
-          <Route path="/type/:typeId" element={<Home />} />
-          <Route path="/type/:typeId" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/bestSellers" element={<BestSellers />} />
           <Route path="*" element={<Navigate to="/" />} />

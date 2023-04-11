@@ -7,7 +7,6 @@ import { useParams } from "react-router";
 const ItemListContainer = ({ greetings }) => {
   const [products, setProducts] = useState([]);
   const { typeId } = useParams();
-  console.log(typeId);
 
   useEffect(() => {
     if (typeId) {
