@@ -20,7 +20,7 @@ const Filter = () => {
           className="search-input"
           placeholder="Search product name here.."
         />
-        <button className="search">Search </button>
+        <button className="search">Search</button>
       </div>
       <div className="buttons">
         <NavLink
