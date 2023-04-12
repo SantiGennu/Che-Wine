@@ -14,6 +14,9 @@
 .btn-primary {
   background-color: #0359ba !important;
 }
+.btn-moreDetail {
+  background-color: #013a7b;
+}
 
 .card-body {
   display: flex;
