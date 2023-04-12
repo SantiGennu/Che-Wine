@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
-  const [goToCar, setGoToCar] = useState(false);
+  const [goToCart, setGoToCart] = useState(false);
 
   const onAdd = (count) => {
-    setGoToCar(true);
+    setGoToCart(true);
     console.log(count);
   };
 
@@ -20,8 +20,10 @@ const ItemDetail = ({ product }) => {
         <Card.Text className="card-text">{product.description}</Card.Text>
         <Card.Text className="card-price">$ {product.price}</Card.Text>
         <div className="buttons-container">
-          {goToCar ? (
-            <Link to="/cart"> Terminar compra </Link>
+          {goToCart ? (
+            <Link to="/cart" className="goToCart">
+              Go to cart
+            </Link>
           ) : (
             <ItemCount initial={1} stock={15} onAdd={onAdd} />
           )}
