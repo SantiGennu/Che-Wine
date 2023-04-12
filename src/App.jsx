@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar/NavBar";
 import Slider from "./components/Carousel/Slider";
 import Contact from "./components/Contact/Contact";
 import BestSellers from "./components/BestSellers/BestSellers";
+import Cart from "./components/Cart/Cart";
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/type/:typeId" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/bestSellers" element={<BestSellers />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

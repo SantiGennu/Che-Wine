@@ -1,8 +1,13 @@
 import Card from "react-bootstrap/Card";
 import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ product }) => {
+  const [goToCar, setGoToCar] = useState(false);
+
   const onAdd = (count) => {
+    setGoToCar(true);
     console.log(count);
   };
 
@@ -15,7 +20,11 @@ const ItemDetail = ({ product }) => {
         <Card.Text className="card-text">{product.description}</Card.Text>
         <Card.Text className="card-price">$ {product.price}</Card.Text>
         <div className="buttons-container">
-          <ItemCount initial={1} stock={15} onAdd={onAdd} />
+          {goToCar ? (
+            <Link to="/cart"> Terminar compra </Link>
+          ) : (
+            <ItemCount initial={1} stock={15} onAdd={onAdd} />
+          )}
         </div>
       </Card.Body>
     </Card>

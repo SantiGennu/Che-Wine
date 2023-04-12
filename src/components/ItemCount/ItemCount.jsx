@@ -5,7 +5,7 @@ import "./ItemCount.css";
 import { Link } from "react-router-dom";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-  const { count, increment, decrement, reset } = UseCount();
+  const { count, increment, decrement } = UseCount();
 
   const handleOnAdd = () => {
     onAdd(count);
