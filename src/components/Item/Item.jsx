@@ -1,9 +1,12 @@
 import { TbShoppingCartPlus } from "react-icons/tb";
-import "./Item.css";
+import "./item.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+
+// import { Context } from "../ItemListContainer/ItemListContainer";
 const Item = ({ product }) => {
+  // const { product } = useContext(Context);
   return (
     <div className=" card-container">
       <Card className="card" style={{ width: "20rem" }}>

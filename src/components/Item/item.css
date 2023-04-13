@@ -14,8 +14,8 @@
 .btn-primary {
   background-color: #0359ba !important;
 }
-.btn-moreDetail {
-  background-color: #013a7b;
+.btn-primary:hover {
+  background-color: #013a7b !important;
 }
 
 .card-body {
