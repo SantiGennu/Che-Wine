@@ -6,6 +6,7 @@ import Slider from "./components/Carousel/Slider";
 import Contact from "./components/Contact/Contact";
 import BestSellers from "./components/BestSellers/BestSellers";
 import Cart from "./components/Cart/Cart";
+
 function App() {
   return (
     <>
