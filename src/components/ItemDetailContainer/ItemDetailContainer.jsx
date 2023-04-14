@@ -5,7 +5,7 @@ import "./ItemDetailContainer.css";
 import { useParams } from "react-router";
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState();
   const { detailId } = useParams();
 
   useEffect(() => {
@@ -15,9 +15,11 @@ const ItemDetailContainer = () => {
   }, []);
 
   return (
-    <div className="detail-container">
-      <ItemDetail product={product} />
-    </div>
+    product && (
+      <div className="detail-container">
+        <ItemDetail product={product} />
+      </div>
+    )
   );
 };
 

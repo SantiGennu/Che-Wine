@@ -2,13 +2,16 @@ import Card from "react-bootstrap/Card";
 import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { CartButtons } from "../CartButtons/CartButtons";
+import { useCartContext } from "../../Context/CartProvider";
 
 const ItemDetail = ({ product }) => {
   const [goToCart, setGoToCart] = useState(false);
 
-  const onAdd = (count) => {
+  const { addProduct } = useCartContext();
+
+  const onAdd = (quantity) => {
     setGoToCart(true);
-    console.log(count);
+    addProduct({ ...product, quantity });
   };
 
   return (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const CartButtons = () => {
   return (
     <div className="shopping">
-      <Link className="btn btn-primary goToCart" to="/cart">
+      <Link className="btn btn-primary goToCart" to="/cartContainer">
         Go to cart
       </Link>
       <Link className="btn btn-primary continue" to="/">
