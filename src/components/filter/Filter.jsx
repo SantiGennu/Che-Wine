@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Filter.css";
 import { NavLink } from "react-router-dom";
 
@@ -14,14 +13,14 @@ const Filter = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "value" : "value2")}
-          to="/type/red wine"
+          to="/type/Red wine"
         >
           Red Wine
         </NavLink>
 
         <NavLink
           className={({ isActive }) => (isActive ? "value" : "value2")}
-          to="/type/white wine"
+          to="/type/White wine"
         >
           White Wine
         </NavLink>

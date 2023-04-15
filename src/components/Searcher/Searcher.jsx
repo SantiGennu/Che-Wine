@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Searcher.css";
 
-export const Searcher = () => {
+export const Searcher = ({ HandleSearch }) => {
+  //recibe por param la funcion y la devuelve con el valor actualizado de la busqueda
   const [search, setSearch] = useState("");
 
-  const HandleSearch = (e) => {
+  const handleInputChange = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
+    HandleSearch(e); // envía el valor actualizado a HandleFilter
   };
+
   return (
     <>
       <div className="search-container">
         <input
           value={search}
-          onChange={HandleSearch}
+          onChange={handleInputChange}
           type="text"
           className="search-input"
           placeholder="Search product name here.."
