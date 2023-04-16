@@ -84,18 +84,19 @@
 }
 .increase,
 .decrease {
-  background-color: #0359ba;
-  color: white;
+  background-color: rgb(7, 171, 171);
+  color: black;
   padding: 0px 10px;
   border-radius: 20px;
   font-size: 1.5rem;
+  border: none;
   cursor: pointer;
-  box-shadow: 1px 1px 1px 1px #064082;
+  box-shadow: 1px 1px 1px 1px rgb(1, 124, 124);
   transition: all 400ms ease;
 }
 .increase:hover,
 .decrease:hover {
-  background-color: #064082;
-  box-shadow: 1px 2px 2px 2px #064082;
+  background-color: rgb(1, 124, 124);
+  box-shadow: 1px 2px 2px 2px rgb(1, 124, 124);
   transition: all 400ms ease;
 }

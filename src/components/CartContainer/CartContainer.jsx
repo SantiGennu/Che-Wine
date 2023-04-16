@@ -3,9 +3,29 @@ import { CartContext, useCartContext } from "../../Context/CartProvider";
 import "./CartContainer.css";
 
 const CartContainer = () => {
-  const { removeProduct, clearCart, cart, totalPrice, addProduct } =
+  const { removeProduct, clearCart, cart, setCart, totalPrice } =
     useCartContext(CartContext);
 
+  const increase = (newProduct) => {
+    const isInCart = cart.find((prod) => prod.id === newProduct.id);
+    setCart(
+      cart.map((prod) =>
+        prod.id === newProduct.id
+          ? { ...prod, quantity: isInCart.quantity + 1 }
+          : prod
+      )
+    );
+  };
+  const decrease = (newProduct) => {
+    const isInCart = cart.find((prod) => prod.id === newProduct.id);
+    setCart(
+      cart.map((prod) =>
+        prod.id === newProduct.id
+          ? { ...prod, quantity: isInCart.quantity - 1 }
+          : prod
+      )
+    );
+  };
   return (
     <>
       <div className="cart-container-title">
@@ -31,9 +51,23 @@ const CartContainer = () => {
                     <p>{product.variaty}</p>
                     <p>{product.type}</p>
                     <p>${product.price}</p>
-                    <span className="decrease">-</span>
+                    <button
+                      className="decrease"
+                      onClick={() => decrease(product)}
+                      disabled={product.quantity === 1 ? true : false}
+                    >
+                      -
+                    </button>
                     <span className="quantity-cart">{product.quantity}</span>
-                    <span className="increase">+</span>
+                    <button
+                      className="increase"
+                      onClick={() => increase(product)}
+                      disabled={
+                        product.quantity === product.stock ? true : false
+                      }
+                    >
+                      +
+                    </button>
                     <p
                       className="remove-product"
                       onClick={() => removeProduct(product.id)}
