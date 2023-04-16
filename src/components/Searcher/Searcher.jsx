@@ -7,7 +7,7 @@ export const Searcher = ({ HandleSearch }) => {
 
   const handleInputChange = (e) => {
     setSearch(e.target.value);
-    HandleSearch(e); // envía el valor actualizado a HandleFilter
+    HandleSearch(e); // envía el valor actualizado a ItemListContainer
   };
 
   return (
