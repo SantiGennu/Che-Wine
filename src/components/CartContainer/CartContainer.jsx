@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import { CartContext, useCartContext } from "../../Context/CartProvider";
 import "./CartContainer.css";
-import { UseCount } from "../../Hooks/UseCount";
 
 const CartContainer = () => {
-  const { count, increment, decrement } = UseCount();
-  const { removeProduct, clearCart, cart, totalPrice } =
+  const { removeProduct, clearCart, cart, totalPrice, addProduct } =
     useCartContext(CartContext);
 
   return (
@@ -33,13 +31,9 @@ const CartContainer = () => {
                     <p>{product.variaty}</p>
                     <p>{product.type}</p>
                     <p>${product.price}</p>
-                    <span className="decrease" onClick={decrement}>
-                      -
-                    </span>
-                    <span className="quantity-cart">{count}</span>
-                    <span className="increase" onClick={increment}>
-                      +
-                    </span>
+                    <span className="decrease">-</span>
+                    <span className="quantity-cart">{product.quantity}</span>
+                    <span className="increase">+</span>
                     <p
                       className="remove-product"
                       onClick={() => removeProduct(product.id)}
