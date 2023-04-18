@@ -1,22 +1,26 @@
 import "./ItemListContainer.css";
 import ItemList from "../itemList/ItemList";
-import { getProduct } from "../../Api";
-import { useState, useEffect } from "react";
-// import { useParams } from "react-router";
+// import { getProduct } from "../../Api";
+import { useState, useContext } from "react";
 import Filter from "../filter/Filter";
 import { Searcher } from "../Searcher/Searcher";
 import { useParams } from "react-router-dom";
+import { Loading } from "../Loading/Loading";
+import { CartContext } from "../../Context/CartProvider";
 
 const ItemListContainer = ({ greetings }) => {
-  const [products, setProducts] = useState([]);
+  const { products, loading } = useContext(CartContext);
+  // const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const { typeId } = useParams();
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    getProduct()
-      .then((resp) => setProducts(resp))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   getProduct()
+  //     .then((resp) => setProducts(resp))
+  //     .catch((err) => console.log(err))
+  //     .finally(() => setLoading(false));
+  // }, []);
 
   const productFiltered = products.filter((product) => {
     if (typeId) {
@@ -24,7 +28,7 @@ const ItemListContainer = ({ greetings }) => {
     } else if (search) {
       return product.name.toLowerCase().includes(search.toLowerCase());
     } else {
-      return products;
+      return [];
     }
   });
 
@@ -36,9 +40,9 @@ const ItemListContainer = ({ greetings }) => {
     <>
       <h3 className="greetings"> {greetings}</h3>
       <div>
-        <Searcher HandleSearch={HandleSearch} />
-        <Filter />
-        <ItemList products={productFiltered} />
+        {loading ? null : <Searcher HandleSearch={HandleSearch} />}
+        {loading ? null : <Filter />}
+        {loading ? <Loading /> : <ItemList products={productFiltered} />}
       </div>
     </>
   );

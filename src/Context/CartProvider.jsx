@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { getProduct } from "../Api";
 
 export const CartContext = createContext([]);
 
@@ -6,6 +7,15 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getProduct()
+      .then((resp) => setProducts(resp))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, []);
 
   const addProduct = (newProduct) => {
     const isInCart = cart.find((prod) => prod.id === newProduct.id);
@@ -46,6 +56,9 @@ const CartProvider = ({ children }) => {
       value={{
         cart,
         setCart,
+        products,
+        loading,
+        setLoading,
         addProduct,
         totalPrice,
         totalProducts,
