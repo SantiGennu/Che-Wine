@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const CartContext = createContext([]);
 
@@ -6,7 +6,6 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  console.log(cart);
 
   const addProduct = (newProduct) => {
     const isInCart = cart.find((prod) => prod.id === newProduct.id);
@@ -22,9 +21,10 @@ const CartProvider = ({ children }) => {
       setCart([...cart, newProduct]);
     }
   };
+
   const totalPrice = () => {
     return cart.reduce(
-      (prev, current) => prev + current.quantity * current.price,
+      (acc, current) => acc + current.quantity * current.price,
       0
     );
   };
@@ -44,9 +44,9 @@ const CartProvider = ({ children }) => {
   return (
     <CartContext.Provider
       value={{
-        addProduct,
         cart,
         setCart,
+        addProduct,
         totalPrice,
         totalProducts,
         clearCart,

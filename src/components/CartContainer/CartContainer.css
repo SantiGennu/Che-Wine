@@ -1,8 +1,8 @@
 .cart-container {
   display: grid;
   grid-template-columns: 1.5fr 0.5fr;
-  align-items: center;
   justify-items: center;
+  gap: 20px;
 }
 .image {
   width: 20%;
@@ -26,6 +26,7 @@
   background-color: #0359ba;
   color: white;
   border-radius: 10px;
+  max-height: 200px;
 }
 .empty {
   margin-top: 50px;
@@ -37,9 +38,13 @@
   color: #0359ba;
 }
 .container-empty-cart {
+  display: flex;
+  justify-content: center;
+}
+.container-empty {
   display: grid;
   justify-items: center;
-  margin-left: 384px;
+  gap: 20px;
 }
 .btn-shopping {
   background-color: #0359ba;

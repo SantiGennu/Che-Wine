@@ -2,9 +2,10 @@ import "./ItemListContainer.css";
 import ItemList from "../itemList/ItemList";
 import { getProduct } from "../../Api";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import Filter from "../filter/Filter";
 import { Searcher } from "../Searcher/Searcher";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greetings }) => {
   const [products, setProducts] = useState([]);
