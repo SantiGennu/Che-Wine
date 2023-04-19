@@ -3,6 +3,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { useState } from "react";
 import { CartButtons } from "../CartButtons/CartButtons";
 import { useCartContext } from "../../Context/CartProvider";
+import "./itemDetail.css";
 
 const ItemDetail = ({ product }) => {
   const [goToCart, setGoToCart] = useState(false);
@@ -15,14 +16,16 @@ const ItemDetail = ({ product }) => {
   };
 
   return (
-    <Card className="card-detail" style={{ width: "30rem" }}>
+    <Card className="card-detail-detail" style={{ width: "30rem" }}>
       <Card.Img variant="top" src={product.image} />
-      <Card.Body>
-        <Card.Title className="card-title">{product.name}</Card.Title>
-        <Card.Text className="card-variaty"> {product.variaty} </Card.Text>
-        <Card.Text className="card-text">{product.description}</Card.Text>
-        <Card.Text className="card-price">$ {product.price}</Card.Text>
-        <div className="buttons-container">
+      <Card.Body className="card-body-detail">
+        <Card.Title className="card-title-detail">{product.name}</Card.Title>
+        <Card.Text className="card-variaty-detail">{product.variaty}</Card.Text>
+        <Card.Text className="card-text-detail">
+          {product.description}
+        </Card.Text>
+        <Card.Text className="card-price-detail">$ {product.price}</Card.Text>
+        <div className="buttons-container-detail">
           {goToCart ? (
             <CartButtons />
           ) : (

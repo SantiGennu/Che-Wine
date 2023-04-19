@@ -41,13 +41,13 @@ p {
   padding: 2px !important;
 }
 .btn {
-  padding: 2px;
+  padding: 4px;
 }
 
 .btn-a {
   background-color: #0358ba71;
   border-radius: 10px;
-  padding: 2px;
+  padding: 4px;
 }
 
 @media (min-width: 990px) {

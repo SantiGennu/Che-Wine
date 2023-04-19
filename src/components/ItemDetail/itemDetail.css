@@ -1,36 +1,22 @@
-.buttons-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.card-detail {
-  margin: auto;
-}
-
-.btn-cart,
-.btn-counter {
-  width: 100%;
-}
-
-.count {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.card-title {
-  font-size: 2.6rem;
-}
-
-.card-variaty {
+.card-title-detail {
   font-size: 2.2rem;
 }
 
-.card-text {
-  font-size: 1.8rem;
+.card-variaty-detail {
+  font-size: 1.5rem;
+}
+.count-detail {
+  font-size: 1.3rem;
 }
 
-.card-price {
-  font-size: 2rem;
+.card-text-detail {
+  font-size: 1.2rem;
+}
+
+.card-price-detail {
+  font-size: 1.7rem;
   font-weight: bold;
+}
+.count {
+  font-size: 1.5rem;
 }

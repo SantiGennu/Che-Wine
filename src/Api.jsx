@@ -201,9 +201,9 @@ const products = [
 
 export const getProduct = (id) => {
   const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(id ? products.find((prod) => prod.id == id) : products);
-    }, 2000);
+    // setTimeout(() => {
+    resolve(id ? products.find((prod) => prod.id == id) : products);
+    // }, 2000);
   });
 
   return promise;

@@ -9,6 +9,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
 
   const handleOnAdd = () => {
     onAdd(count);
+    console.log(count);
   };
 
   return (

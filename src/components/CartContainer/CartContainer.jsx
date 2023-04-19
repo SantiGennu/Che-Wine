@@ -1,5 +1,10 @@
 import { CartContext, useCartContext } from "../../Context/CartProvider";
 import "./CartContainer.css";
+import { CgRemove } from "react-icons/cg";
+import { CgAdd } from "react-icons/cg";
+import { MdClear } from "react-icons/md";
+import { FaShoppingBag } from "react-icons/fa";
+import swal from "sweetalert";
 
 import { Link } from "react-router-dom";
 
@@ -17,6 +22,7 @@ const CartContainer = () => {
       )
     );
   };
+
   const decrease = (newProduct) => {
     const isInCart = cart.find((prod) => prod.id === newProduct.id);
     setCart(
@@ -27,6 +33,15 @@ const CartContainer = () => {
       )
     );
   };
+
+  const handleBuy = () => {
+    swal({
+      title: "Good job!",
+      text: "Thanks for trusting us!",
+      icon: "success",
+    });
+  };
+
   return (
     <>
       <div className="cart-container-title">
@@ -37,16 +52,13 @@ const CartContainer = () => {
         <div className="cart-container">
           <div>
             {cart.map((product) => (
-              <>
-                <div key={product.id} className="products-container">
+              <div key={product.id}>
+                <div className="products-container">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="image"
                   />
-                  <p className="clear" onClick={() => clearCart()}>
-                    Clear cart
-                  </p>
                   <p>{product.name}</p>
                   <p>{product.variaty}</p>
                   <p>{product.type}</p>
@@ -56,7 +68,7 @@ const CartContainer = () => {
                     onClick={() => decrease(product)}
                     disabled={product.quantity === 1 ? true : false}
                   >
-                    -
+                    <CgRemove size={"2.2rem"} />
                   </button>
                   <span className="quantity-cart">{product.quantity}</span>
                   <button
@@ -64,22 +76,35 @@ const CartContainer = () => {
                     onClick={() => increase(product)}
                     disabled={product.quantity === product.stock ? true : false}
                   >
-                    +
+                    <CgAdd size={"2.2rem"} />
                   </button>
-                  <p
+                  <span className="Buy" onClick={handleBuy}>
+                    <button className="btn-buy">
+                      <FaShoppingBag className="buy" size={"2rem"} />
+                    </button>
+                  </span>
+                  <span
                     className="remove-product"
                     onClick={() => removeProduct(product.id)}
                   >
-                    X
-                  </p>
+                    <button className="btn-remove">
+                      <MdClear className="remove" size={"2.2rem"} />
+                    </button>
+                  </span>
                 </div>
-              </>
+              </div>
             ))}
           </div>
-          <div className="price-container">
-            <p className="total-price">
-              Total price: <br /> ${totalPrice()}
-            </p>
+          <div className="container-clear-price">
+            <button className="clear" onClick={() => clearCart()}>
+              Clear cart
+            </button>
+
+            <div className="price-container">
+              <p className="total-price">
+                Total price: <br /> ${totalPrice()}
+              </p>
+            </div>
           </div>
         </div>
       ) : (
