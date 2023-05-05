@@ -2,6 +2,7 @@ import "./itemList.css";
 import Item from "../Item/Item";
 
 const ItemList = ({ products }) => {
+  console.log(products);
   return (
     <div className="container">
       {products.map((product) => (

@@ -8,7 +8,7 @@ const products = [
     price: 800,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 12,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const products = [
     price: 1150,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 6,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const products = [
     price: 830,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 22,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const products = [
     price: 3490,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 11,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const products = [
     price: 2900,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 12,
-    bestSeller: "true",
+    bestseller: "true",
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const products = [
     price: 1100,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 12,
-    bestSeller: "true",
+    bestseller: "true",
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ const products = [
     price: 3350,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 14,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const products = [
     price: 3290,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 15,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 9,
@@ -96,7 +96,7 @@ const products = [
     price: 870,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 16,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const products = [
     price: 1200,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 14,
-    bestSeller: "true",
+    bestseller: "true",
   },
   {
     id: 11,
@@ -118,7 +118,7 @@ const products = [
     price: 1500,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 9,
-    bestSeller: "true",
+    bestseller: "true",
   },
   {
     id: 12,
@@ -129,7 +129,7 @@ const products = [
     price: 2340,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 11,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 13,
@@ -140,7 +140,7 @@ const products = [
     price: 1420,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 12,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 14,
@@ -151,7 +151,7 @@ const products = [
     price: 1800,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 13,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 15,
@@ -162,7 +162,7 @@ const products = [
     price: 900,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 13,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 16,
@@ -173,7 +173,7 @@ const products = [
     price: 1200,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 15,
-    bestSeller: "true",
+    bestseller: "true",
   },
   {
     id: 17,
@@ -184,7 +184,7 @@ const products = [
     price: 2200,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 14,
-    bestSeller: "false",
+    bestseller: "false",
   },
   {
     id: 18,
@@ -195,15 +195,15 @@ const products = [
     price: 3000,
     description: "Es un vino que refleja su amor por la buena uva",
     stock: 10,
-    bestSeller: "true",
+    bestseller: "true",
   },
 ];
 
 export const getProduct = (id) => {
   const promise = new Promise((resolve, reject) => {
-    // setTimeout(() => {
-    resolve(id ? products.find((prod) => prod.id == id) : products);
-    // }, 2000);
+    setTimeout(() => {
+      resolve(id ? products.find((prod) => prod.id == id) : products);
+    }, 2000);
   });
 
   return promise;

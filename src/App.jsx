@@ -7,6 +7,9 @@ import Contact from "./components/Contact/Contact";
 import BestSellers from "./components/BestSellers/BestSellers";
 import CartProvider from "./Context/CartProvider";
 import CartContainer from "./components/CartContainer/CartContainer";
+import Footer from "./components/Footer/Footer";
+
+// analytics();
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
             <Route path="/cartContainer" element={<CartContainer />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
+          <Footer />
         </CartProvider>
       </BrowserRouter>
     </>

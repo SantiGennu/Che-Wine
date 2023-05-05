@@ -1,23 +1,42 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getProduct } from "../../Api";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TbShoppingCartPlus } from "react-icons/tb";
 import "./BestSellers.css";
-import { CartContext } from "../../Context/CartProvider";
 import { Loading } from "../Loading/Loading";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 const BestSellers = () => {
-  const { loading, setLoading } = useContext(CartContext);
+  const [loading, setLoading] = useState(true);
   const [bestSellers, setBestSellers] = useState([]);
   useEffect(() => {
-    getProduct()
+    const querydb = getFirestore();
+    const queryCollection = collection(querydb, "products");
+    const queryFilter = query(queryCollection, where("bestseller", "==", true));
+    getDocs(queryFilter)
       .then((res) =>
-        setBestSellers(res.filter((product) => product.bestSeller === "true"))
+        setBestSellers(
+          res.docs.map((prod) => ({ id: prod.id, ...prod.data() }))
+        )
       )
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
+
+  // getProduct()
+  //     .then((res) =>
+  //       setBestSellers(res.filter((product) => product.bestseller === "true"))
+  //     )
+  //     .catch((err) => console.log(err))
+  //     .finally(() => setLoading(false));
+  // }, []);
 
   return (
     <>

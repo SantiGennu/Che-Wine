@@ -141,3 +141,14 @@
   padding: 3px;
   transition: all 400ms ease;
 }
+.form-cart {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  background-color: #0359ba;
+  margin: 50px;
+  color: white;
+}

@@ -58,7 +58,7 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="John Doe"
+                  placeholder="Santiago Gennuso"
                 />
                 <ErrorMessage
                   name="name"
