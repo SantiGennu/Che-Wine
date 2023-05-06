@@ -1,9 +1,9 @@
 import { CartContext, useCartContext } from "../../Context/CartProvider";
 import "./CartContainer.css";
-import { useState } from "react";
 import { CgRemove } from "react-icons/cg";
 import { CgAdd } from "react-icons/cg";
 import { MdClear } from "react-icons/md";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import {
   addDoc,
@@ -12,17 +12,16 @@ import {
   getFirestore,
   updateDoc,
 } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
+import { useEffect } from "react";
 
 const CartContainer = () => {
-  const [user, setUser] = useState({
-    name: "",
-    surname: "",
-    phone: "",
-    email: "",
-  });
   const { removeProduct, clearCart, cart, setCart, totalPrice } =
     useCartContext(CartContext);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const increase = (newProduct) => {
     const isInCart = cart.find((prod) => prod.id === newProduct.id);
@@ -45,14 +44,15 @@ const CartContainer = () => {
       )
     );
   };
-  const handleBuy = (e) => {
-    e.preventDefault();
-    const order = {
-      buyer: user,
-      items: cart.map(({ id, name, price }) => ({ id, name, price })),
-      total: totalPrice(),
-    };
 
+  const handleBuy = (values) => {
+    const { repeat, ...buyerInfo } = values; //elimino el campo repeat en firebase
+    const order = {
+      Buyer: buyerInfo,
+      Items: cart.map(({ id, name, price }) => ({ id, name, price })),
+      Total: totalPrice(),
+    };
+    console.log(order);
     //Add orders
     const db = getFirestore();
     const queryCollection = collection(db, "orders");
@@ -60,7 +60,7 @@ const CartContainer = () => {
     addDoc(queryCollection, order)
       .then(({ id }) => console.log({ id }))
       .catch((resp) => console.log(resp))
-      .finally(clearCart());
+      .finally(() => clearCart());
     alert("The shopping has been made");
   };
 
@@ -135,53 +135,157 @@ const CartContainer = () => {
               </div>
             </div>
           </div>
-          <form className="form-cart">
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Santiago"
-              required
-              value={user.name}
-              onChange={(e) => setUser({ ...user, name: e.target.value })}
-            ></input>
-            <label>Surname</label>
-            <input
-              type="text"
-              name="surname"
-              placeholder="Gennuso"
-              required
-              value={user.surname}
-              onChange={(e) => setUser({ ...user, surname: e.target.value })}
-            ></input>
-            <label>Phone</label>
-            <input
-              type="number"
-              name="phone"
-              placeholder="45324567"
-              value={user.phone}
-              onChange={(e) => setUser({ ...user, phone: e.target.value })}
-            ></input>
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              placeholder="santiagogennuso@email.com"
-              required
-              value={user.email}
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-            ></input>
-            <label>Repeat Email</label>
-            <input
-              type="text"
-              name="email"
-              placeholder="santiagogennuso@email.com"
-              required
-              value={user.repeat}
-              onChange={(e) => setUser({ ...user, repeat: e.target.value })}
-            ></input>
-            <button onClick={handleBuy}> Proceed to checkout</button>
-          </form>
+          <div className="container">
+            <Formik
+              initialValues={{
+                name: "",
+                surname: "",
+                email: "",
+                phone: "",
+                email: "",
+              }}
+              validate={(values) => {
+                let errors = {};
+
+                if (!values.name) {
+                  errors.name = "Field name is requiered";
+                } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
+                  errors.name = "field name accept just letters and spaces";
+                }
+
+                if (!values.surname) {
+                  errors.surname = "Field surname is requiered";
+                } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.surname)) {
+                  errors.surname =
+                    "Field surname accept just letters and spaces";
+                }
+                if (!values.phone) {
+                  console.log(values.phone);
+                  errors.phone = "Field phone is requiered";
+                } else if (
+                  !/^\+?\d{1,3}[-.\s]?\d{3}[-.\s]?\d{4}$/.test(values.phone)
+                ) {
+                  errors.phone = "Phone number incorrect";
+                }
+
+                if (!values.email) {
+                  errors.email = "Field email is requiered";
+                } else if (
+                  !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+                    values.email
+                  )
+                ) {
+                  errors.email = "Email is incorrect";
+                }
+                if (!values.repeat) {
+                  errors.repeat = "Field repeat email is required";
+                } else if (values.email !== values.repeat) {
+                  errors.repeat = "Repeat email must match email";
+                }
+
+                return errors;
+              }}
+              onSubmit={(values, { resetForm }) => {
+                resetForm();
+                handleBuy(values);
+                console.log(values);
+                console.log("enviado");
+              }}
+            >
+              {({ errors }) => (
+                <Form className="form-cart">
+                  <div className="div-name">
+                    <div className="label">
+                      <label htmlFor="name">Name</label>
+                    </div>
+                    <Field
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Santiago"
+                    />
+                    <ErrorMessage
+                      name="name"
+                      component={() => (
+                        <div className="error">{errors.name} </div>
+                      )}
+                    />
+                  </div>
+                  <div className="div-surname">
+                    <div className="label">
+                      <label htmlFor="surname">Surname</label>
+                    </div>
+                    <Field
+                      type="text"
+                      id="surname"
+                      name="surname"
+                      placeholder="Gennuso"
+                    />
+                    <ErrorMessage
+                      name="surname"
+                      component={() => (
+                        <div className="error">{errors.surname} </div>
+                      )}
+                    />
+                  </div>
+
+                  <div className="div-phone">
+                    <div className="label">
+                      <label htmlFor="phone">Phone number</label>
+                    </div>
+                    <Field type="number" id="phone" name="phone" />
+                    <ErrorMessage
+                      name="phone"
+                      component={() => (
+                        <div className="error">{errors.phone} </div>
+                      )}
+                    />
+                  </div>
+
+                  <div className="div-email">
+                    <div className="label">
+                      <label htmlFor="email">Email</label>
+                    </div>
+                    <Field
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="santiagogennuso@gmail.com"
+                    />
+
+                    <ErrorMessage
+                      name="email"
+                      component={() => (
+                        <div className="error">{errors.email} </div>
+                      )}
+                    />
+                  </div>
+                  <div className="div-repeat">
+                    <div className="repeat">
+                      <label htmlFor="repeat">Repeat Email</label>
+                    </div>
+                    <Field
+                      type="email"
+                      id="repeat"
+                      name="repeat"
+                      placeholder="santiagogennuso@gmail.com"
+                    />
+
+                    <ErrorMessage
+                      name="repeat"
+                      component={() => (
+                        <div className="error">{errors.repeat} </div>
+                      )}
+                    />
+                  </div>
+                  <button type="submit" className="btn-form">
+                    Proceed to checkout
+                  </button>
+                </Form>
+              )}
+            </Formik>
+            ;
+          </div>
         </>
       ) : (
         <div className="container-empty-cart">

@@ -28,13 +28,13 @@ input {
 }
 
 .btn-form {
-  background-color: #0359ba;
+  background-color: rgb(1, 124, 124);
   color: white;
   width: 100%;
 }
 .btn-form:hover {
-  background-color: azure;
-  color: black;
+  background-color: rgb(1, 97, 97);
+  color: white;
 }
 .error {
   background-color: white;

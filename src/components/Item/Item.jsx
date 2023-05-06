@@ -21,13 +21,7 @@ const Item = ({ product }) => {
                 <Button className="btn-moreDetail">More Details</Button>
               </Link>
             </div>
-            <div className="btn-cart">
-              <Button className="button">
-                <span>
-                  <TbShoppingCartPlus />
-                </span>
-              </Button>
-            </div>
+            <div className="btn-cart"></div>
           </div>
         </Card.Body>
       </Card>

@@ -6,16 +6,10 @@ export const CartContext = createContext([]);
 export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  // const [products, setProducts] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   getProduct()
-  //     .then((res) => setProducts(res))
-  //     .catch((err) => console.log(err))
-  //     .finally(() => setLoading(false));
-  // }, []);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   const addProduct = (newProduct) => {
     const isInCart = cart.find((prod) => prod.id === newProduct.id);
